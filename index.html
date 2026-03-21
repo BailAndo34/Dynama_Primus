@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src https://*.supabase.co wss://*.supabase.co https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; connect-src https://*.supabase.co wss://*.supabase.co https://cdn.jsdelivr.net; img-src 'self' data: *; style-src 'self' 'unsafe-inline';">
 <title>DYNAMA v9 — 3 Primus</title>
+    <script src="https://cdn.jsdelivr.net/npm/pubsub-js@1.9.5/src/pubsub.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,sans-serif;font-size:12px;background:#f0f2f5;color:#1a1a2e}
@@ -60,13 +61,13 @@ select.sm{padding:2px 4px;border:1px solid #b0bec5;border-radius:3px;font-size:1
     </div>
     <form onsubmit="doLogin(event)">
       <div style="margin-bottom:12px">
-        <label style="font-size:11px;font-weight:700;color:#1a3a5c;display:block;margin-bottom:4px">Email</label>
-        <input id="li-email" type="email" required placeholder="you@company.com"
+        <label for="li-email" style="font-size:11px;font-weight:700;color:#1a3a5c;display:block;margin-bottom:4px">Email</label>
+        <input id="li-email" name="email" type="email" required placeholder="you@company.com"
           style="width:100%;padding:7px 10px;border:1px solid #b0bec5;border-radius:4px;font-size:12px">
       </div>
       <div style="margin-bottom:16px">
-        <label style="font-size:11px;font-weight:700;color:#1a3a5c;display:block;margin-bottom:4px">Password</label>
-        <input id="li-pw" type="password" required placeholder="••••••••"
+        <label for="li-pw" style="font-size:11px;font-weight:700;color:#1a3a5c;display:block;margin-bottom:4px">Password</label>
+        <input id="li-pw" name="password" type="password" required placeholder="••••••••"
           style="width:100%;padding:7px 10px;border:1px solid #b0bec5;border-radius:4px;font-size:12px">
       </div>
       <div id="li-err" style="font-size:11px;color:#c0392b;margin-bottom:8px;min-height:16px"></div>
